@@ -30,6 +30,7 @@
     "mounts": [
         "source=${localWorkspaceFolder}/src,target=/workspace,type=bind,consistency=cached"
     ],
+    "runArgs": ["--env-file", ".env"],
     "workspaceFolder": "/workspace",
     "remoteUser": "root"
 } 

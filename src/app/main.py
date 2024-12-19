@@ -2,12 +2,19 @@ from typing import Dict, Any
 import json
 import asyncio
 import aiohttp
+import os
 
-# Google Analytics Configuration
-GA_MEASUREMENT_ID = "G-XXXXXXXXXX"  # Replace with your GA4 Measurement ID
-GA_API_SECRET = "YOUR_API_SECRET"   # Replace with your GA4 API secret
+# Get Google Analytics Configuration from environment variables
+GA_MEASUREMENT_ID = os.getenv('GA_MEASUREMENT_ID')
+GA_API_SECRET = os.getenv('GA_API_SECRET')
 
-async def send_ga_event(event_name: str, params: Dict[Any, Any] = None):
+if not GA_MEASUREMENT_ID or not GA_API_SECRET:
+    raise ValueError("GA_MEASUREMENT_ID and GA_API_SECRET environment variables must be set")
+
+async def send_ga_event(
+    event_name: str, 
+    params: Dict[Any, Any] = None
+):
     """
     Send server-side events to Google Analytics 4 asynchronously
     """
@@ -29,6 +36,7 @@ async def send_ga_event(event_name: str, params: Dict[Any, Any] = None):
         print(f"Error sending GA event: {str(e)}")
         return False
 
+
 async def main():
     # Example of sending an event
     success = await send_ga_event("test_event", {
@@ -36,6 +44,7 @@ async def main():
         "event_label": "console_app"
     })
     print(f"Event sent successfully: {success}")
+
 
 if __name__ == "__main__":
     asyncio.run(main())
