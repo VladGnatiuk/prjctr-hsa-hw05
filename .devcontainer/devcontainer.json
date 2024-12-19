@@ -1,0 +1,35 @@
+{
+    "name": "FastAPI Development",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "forwardPorts": [8000],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-python.black-formatter",
+                "ms-python.debugpy",
+                "njpwerner.autodocstring",
+                "kevinrose.vsc-python-indent",
+                "streetsidesoftware.code-spell-checker",
+                "visualstudioexptteam.vscodeintellicode",
+                "yzhang.markdown-all-in-one",
+                "christian-kohler.path-intellisense",
+                "mechatroner.rainbow-csv",
+                "ryanluker.vscode-coverage-gutters",
+                "tamasfe.even-better-toml"
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python"
+            }
+        }
+    },
+    "mounts": [
+        "source=${localWorkspaceFolder}/src,target=/workspace,type=bind,consistency=cached"
+    ],
+    "workspaceFolder": "/workspace",
+    "remoteUser": "root"
+} 
