@@ -1,9 +1,7 @@
 npm install -g @devcontainers/cli
-
+---
 devcontainer up --workspace-folder .
-
 devcontainer up --remove-existing-container --workspace-folder .
 ---
-
 sudo apt  install jq 
 docker ps -a --format '{{json .}}' | jq '.'

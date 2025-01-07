@@ -17,5 +17,11 @@ RUN pip install --upgrade pip \
     && rm /tmp/requirements.txt \
     && rm /tmp/requirements.dev.txt
 
+# Configure Jupyter
+RUN jupyter notebook --generate-config \
+    && echo "c.NotebookApp.ip = '0.0.0.0'" >> /root/.jupyter/jupyter_notebook_config.py \
+    && echo "c.NotebookApp.allow_root = True" >> /root/.jupyter/jupyter_notebook_config.py \
+    && echo "c.NotebookApp.open_browser = False" >> /root/.jupyter/jupyter_notebook_config.py
+
 # Keep container alive
 CMD ["sleep", "infinity"]
