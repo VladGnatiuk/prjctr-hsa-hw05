@@ -36,5 +36,6 @@
     "workspaceMount": "source=${localWorkspaceFolder}/src,target=/workspace,type=bind,consistency=cached",
     "workspaceFolder": "/workspace",
     "runArgs": ["--env-file", ".env"],
-    "remoteUser": "root"
+    "remoteUser": "developer",
+    "updateRemoteUserUID": true
 } 
