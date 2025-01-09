@@ -1,0 +1,5 @@
+{
+    "python.defaultInterpreterPath": "/usr/local/bin/python",
+    "jupyter.notebookFileRoot": "${workspaceFolder}/app",
+    "python.analysis.extraPaths": []
+} 
